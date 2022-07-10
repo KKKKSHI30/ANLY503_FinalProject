@@ -1,0 +1,90 @@
+---
+title: "Untitled"
+author: "Hanjing Shi"
+date: '2022-05-05'
+output: html_document
+---
+```{r}
+library(tidyverse)
+library(janitor)
+library(gganimate)
+#install.packages("gifski")
+library(gifski)
+library(readr)
+```
+
+```{r}
+tencity = read.csv("pivot_select.csv")
+city_date = read.csv("pivot_city.csv")
+order_city = read.csv("order_city.csv")
+```
+
+```{r}
+order_city$year = str_sub(order_city$date, 1,4)
+```
+
+
+
+
+```{r}
+city1 <- order_city %>%
+  group_by(year, city) %>%
+  summarise(rate_mean=(mean(rate))) %>%
+  mutate(rank = rank(-rate_mean),
+         gdp_rel = rate_mean/rate_mean[rank==1],
+         gdp_lbl = paste0(" ",round(rate_mean,3))) %>%
+  group_by(city) %>% 
+  filter(rank <=100) %>%
+  ungroup()
+```
+
+```{r}
+static_plot <- ggplot(city1, aes(rank, group = city)) +  
+  geom_tile(aes(y = rate_mean/2,
+                height = rate_mean, fill = city,
+                width = 0.5), alpha = 0.8) +
+  geom_text(aes(y = 0, label = paste(city, " ")), vjust = 0.2, hjust = 1) +
+  geom_text(aes(y=rate_mean,label = gdp_lbl, hjust=0)) +
+  geom_text(aes(x=10, y=max(rate_mean) , label = as.factor(year)), vjust = 0.2, alpha = 0.5,  col = "gray", size = 20) +
+  coord_flip(clip = "off", expand = FALSE) +
+  scale_y_continuous(labels = scales::comma) +
+  scale_x_reverse() +
+  scale_fill_discrete(guide = guide_legend(title.theme = element_text(
+      size = 20), label.theme = element_text(size = 15))) +
+  scale_fill_manual(values = c("#442288", "#76b7b2", "#F0B801","#9c755f","#EB7D5B","#6CA2EA","#B5D33D","#e500a4","#ff9da7","#bab0ac")) +
+  theme(axis.line=element_blank(),
+        axis.text.x=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks=element_blank(),
+        axis.title.x=element_blank(),
+        axis.title.y=element_blank(),
+        panel.background=element_blank(),
+        panel.border=element_blank(),
+        panel.grid.major=element_blank(),
+        panel.grid.minor=element_blank(),
+        panel.grid.major.x = element_line( size=.1, color="grey" ),
+        panel.grid.minor.x = element_line( size=.1, color="grey" ),
+        plot.title=element_text(size=25, hjust=0, face="bold", colour="black", vjust=-1),
+        plot.subtitle=element_text(size=14, hjust=0, vjust=-1,face="italic", color="grey"),
+        plot.caption =element_text(size=14, hjust=1, face="italic", color="grey"),
+        plot.background=element_blank(),
+        plot.margin = margin(2,2, 2, 4, "cm"))
+```
+
+```{r}
+animated <- static_plot + transition_states(year,
+transition_length = 3, state_length = 0, wrap = FALSE) +
+  view_follow(fixed_x = TRUE)  +
+  ease_aes('linear')+
+    enter_fade()+
+    exit_fade() +
+  labs(title = '2012 - 2021 Average House Price Growth Rate',  
+       subtitle  =  "Five Potential STEM Cities VS Five Most Popular STEM Cities",
+       caption  = "Data Source: Zillow Database")
+```
+
+```{r}
+animate(animated, 150, fps = 3, end_pause = 30, width = 800, height = 1000, 
+        renderer = gifski_renderer("viz_anim_tencity.gif"))
+```
+
