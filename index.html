@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="description" content="Group Project for ANLY503" />
+        <title>U.S. Housing Market Analysis</title>
+        <link rel="icon" type="image/x-icon" href="https://jixy.georgetown.domains/ANLY503/html/house.png" />
+        <link href="https://jixy.georgetown.domains/ANLY503/html/style1.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+            <div class="container px-4">
+                <a class="navbar-brand" href="#page-top">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#intro">Introduction</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#dataset">Data</a></li>
+						<li class="nav-item"><a class="nav-link" href="#viz">Visualization</a></li>
+						<li class="nav-item"><a class="nav-link" href="#discussion">Discussion</a></li>
+						<li class="nav-item"><a class="nav-link" href="#conclusion">Conclusion</a></li>
+						<li class="nav-item"><a class="nav-link" href="#reference">References</a></li>
+						<li class="nav-item"><a class="nav-link" href="#about">About us</a></li>
+						<li class="nav-item"><a class="nav-link" href="https://jixy.georgetown.domains/ANLY503/methods.html">|&nbsp; &nbsp;Methods</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="masthead text-white" style="background-image: url('https://jixy.georgetown.domains/ANLY503/html/house.jpeg')">
+            <div class="container px-4 text-center">
+                <h1 class="fw-bolder  fst-italic">U.S. Potential STEM Cities Real Estate Market Analysis</h1>
+				<br>
+                <a class="btn btn-lg btn-light" href="#intro">Start</a>
+            </div>
+        </header>
+        <!-- Introduction section-->
+        <section id="intro">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2>Introduction</h2>
+                        <p class="lead1">
+							This Project is going to explore the potencial cities for young professionals in STEM major to live.</p>
+					  <p class="lead2"><strong class = "fw-bold">"Where should I go after graduating from the program?"</strong> As a first-year graduate student looking into the upcoming hiring season, I often wonder.&nbsp;</p>
+					  <p class="lead2">As a STEM-major student, it might be a "norm" to move to some STEM-centered cities: San Francisco, San Jose, or Seattle. However, along with great job opportunities, the living expenses and the housing prices in these cities are sky-rocketing. Are there any rising cities with much potential to provide great job opportunities to STEM students while having lower living expenses and better housing prices? Especially with the impacts of the COVID-19, many young people change their attitudes about purchasing a property. Real-estate investment is suitable for providing stability when the outside environment changes. Therefore, more young people are willing to purchase a property instead of renting, which makes the housing prices of a city a very important factor when people make moving decisions.</p>
+						<p class="lead2">This project will look into 5 cities with STEM potentials, analyzing the housing price and growth rate for 2-Bedroom apartments and condos (two housing types that young professionals are most likely to choose when purchasing their first property), and compare the housing market of 5 potential STEM cities with 5 focus STEM centers: San Francisco, San Jose, Seattle, Los Angeles, and Boston. Hopefully, by the end of this analysis, people will be more familiar with STEM potential cities and will have a better understanding of where STEM students should move after graduation based on housing markets. </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Dataset section-->
+        <section class="bg-light" id="dataset">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                  <div class="col-lg-8">
+                    <h2>Data</h2>
+                      <p class="lead2">The dataset has 1200 observations that include nine variables: "city", "state_code", "date", "price", "twobed_price", "condo_price", "rate", "tbrate" (represents the growth rate for 2-bedroom apartments) and "conrate" (represents the growth rate for condo). Ten cities are included in this dataset, five of which are potential STEM cities, and the rest are famous STEM cities. The five potential STEM cities (Austin, Dallas, New York, Orlando, Miami) were selected by the top frequency of the combination of potential and technology cities from text analysis (explained in discussions). And the five well-known STEM cities (San Francisco, San Jose, Seattle, Los Angeles, Boston) were selected based on the location of famous technology companies.</p>
+                      <p class="lead2"> </p>
+					<p class="lead1">Here is the overview of our cleaned datasets.</p>
+					<ul>
+	      				<li class = "lead fst-italic">Data Set Overview</li>
+						  <p class = "lead2"></p>
+						<iframe src="https://jixy.georgetown.domains/ANLY503/select_city.html" width="800px" height="650px"> </iframe>
+						
+						
+					  </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+       
+		<!-- Visualization section-->
+        <section id="viz">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                  <div class="col-lg-8">
+                        <h2>Visualization</h2>
+                    <p class="lead"></p>
+					  <ul>
+						  <li class = "lead fst-italic">Figure-1 [ Interactive Choropleth Map ]: 50 States' Average Real Estate Price Growth Rate in the US from 2012 - 2021</li>
+						  <br>
+						  	<iframe src="https://jixy.georgetown.domains/ANLY503/viz_state_growth_rate.html" width="1000px" height="600px"> </iframe>
+						  		<p style="font-size:13px; color:#6c757d; font-style:italic;"><strong>Annotation</strong>: Choropleth Map will automatically show the change in growth rate in the 50 US states over the last decade by <strong>clicking the play button below the image</strong>. On the timeline, <strong>click a year</strong> to see the price increase for that year. When you <strong>hover your mouse</strong> over a state, you can see its name, year, and growth rate to three decimal places.</p>
+						  		<p class = "lead2"><strong class = "fw-bold">Results</strong>: People can use the Choropleth Map to find the states where the annual real estate price growth rate is going up. Determine if the increase in real estate values in these possible cities will impact the states in which they are located. The map displays the average housing price growth rates in 50 states over the last 10 years, from light to dark. As the color goes from light to dark, users can see that the percentages of house price growth in Florida and Texas have been getting higher over the last few years. Still, the rates of housing price growth in California and Washington, which already have high housing costs, have continued to fall year after year.</p>
+						  <a class = "lead2" href = "https://jixy.georgetown.domains/ANLY503/state_growth_rate_choropleth.py">view code</a>
+						  <br><br>
+						<li class = "lead fst-italic">Figure-2 [Interactive Bubble Map]: Word Frequency Rank of Potential and Technology Cities in the United States</li>
+						  	<br>
+						  	<iframe src="https://jixy.georgetown.domains/ANLY503/viz_city_rank.html" width=1000px height="600px"></iframe>
+						  		<p style="font-size:13px; color:#6c757d; font-style:italic;"><strong>Annotation</strong>: While <strong>hovering</strong> over the figure, the city's name, latitude and longitude, and frequency of appearance in prospective city news and technology city news are shown. <strong>Double-click the colored legends at the bottom of the figure</strong> to view only the cities in the respective rankings.</p>
+						  		
+						  		<p class = "lead2"><strong class = "fw-bold">Results</strong>: The bubble map evaluates the frequency of cities mentioned in news articles regarding prospective cities and technology cities in the United States. It was selecting the most promising technology cities that allocate many economic benefits and have the potential to provide job opportunities during the last few years. The selected five cities were New York, Miami, Orlando, Austin, and Dallas. Although New York is already the biggest city in the United States, it has been transitioning from a financial city to an e-economy city in recent years.
+						  	<br>
+						  		<br><a class = "lead2" href = "https://jixy.georgetown.domains/ANLY503/city_rank_bubble.py" >view code</a>
+						  	<br><br>
+						 <li class = "lead fst-italic">Figure-3 [Animated Bar Race Plot]: Housing Price Growth Rate in Five Potential STEM Cities and Five Popular STEM Cities</li>
+						  	<img src="https://jixy.georgetown.domains/ANLY503/viz_anim_tencity.gif" width="800px" height="900px"> </img>
+					  		<br>
+					  		<p class="lead2"><strong class="fw-bold">Results</strong>: Before 2018, the annual growth rate of housing prices in the five well-known STEM cities was substantial, increasing from 2015 to 2017. But since 2018, the housing growth rate of those cities has continued to decline. San Francisco's housing growth rate continued to decrease incredibly. In 2019, San Francisco's housing prices were even experiencing negative growth.&nbsp;</p>
+						  		<p class="lead2">Meanwhile, compared to the five well-known STEM cities, the housing price growth rates in potential STEM cities have consistently increased since 2018. From 2019, the housing price growth rates have been maintained for the first place by Austin, Texas. And housing prices in other potential STEM cities, such as Miami and Orlando, have significantly increased since 2019.</p>
+						  		<a class = "lead2" href = "https://jixy.georgetown.domains/ANLY503/bar_race_tencity.Rmd" >view code</a>
+						  	<br><br>
+						 <li class = "lead fst-italic">Figure-4 [Time-Series Heat Map]: Growth Rate for <strong>Two Bedrooms Apartments</strong> in Five Potential STEM Cities and Five Famous STEM Cities</li>
+						  	<br>
+					  		<img src="https://jixy.georgetown.domains/ANLY503/viz_corr.png" width="1000px" height="800px"> </img>
+						  		<p class="lead2"></p>
+								<a class = "lead2" href = "https://jixy.georgetown.domains/ANLY503/corr_year_city_2b.R" >view code</a>
+						  	<br><br>
+						 <li class = "lead fst-italic">Figure-5 [Time-Series Heat Map]: Growth Rate for <strong>Condo</strong> in Five Potential STEM Cities and Five Famous STEM Cites</li>
+						  <br>
+					  		<img src="https://jixy.georgetown.domains/ANLY503/viz_corr_condo.png" width="1000px" height="800px"> </img>
+								<p class="lead2"><strong class="fw-bold">Figure-4 & Figure-5 Results</strong>:The year-to-year heatmaps show that the years on the left are often darker than the years on the right. It might imply that the left-side years have "high seasons" while the right-side years have "poor seasons." As a result of these two graphs, we can examine the monthly growth rate for 5 prospective STEM cities and 5 STEM famous cities over the previous decade.</p>
+								<a class = "lead2" href = "https://jixy.georgetown.domains/ANLY503/corr_year_city_condo.R" >view code</a>
+					  			<br><br>
+						<li class = "lead fst-italic">Figure-6 [Interactive Violin Plot]: Average Housing Growth Rate for Two-Bedroom Apartments and Condos in Five Potential STEM Cities and Five Popular STEM Cities from 2012-2021 </li>
+						  <br>
+					  		<iframe src="https://jixy.georgetown.domains/ANLY503/viz_select_city_violin.html" width="1100px" height="700px"> </iframe>
+							<p style="font-size:13px; color:#6c757d; font-style:italic;"><strong>Annotation</strong>: By <strong>clicking the legend at the bottom</strong>, visitors can filter the specific home type to see the growth rates in various cities. While <strong>hovering over</strong> each instrument, summary statistics for each city, such as the minimum, first quartile, median, and maximum, may be shown. Additionally, viewers may alter the slider to <strong>choose a specific range.</strong></p>
+						  		<p class="lead2"><strong class="fw-bold">Results</strong>: The violin graph shows that the price growth of two-bedroom apartments and condos over the last decade has been relatively similar in both potential and the most popular STEM cities. Compared to the most popular STEM cities, the median real estate price growth rates of the other four prospective cities, except New York, are around 0.75. The growth rates of the most popular STEM cities differ tremendously, particularly in San Jose and San Francisco, which indicates that housing prices in these two cities fluctuate significantly.</p>
+								<a class = "lead2" href = "https://jixy.georgetown.domains/ANLY503/select_city_violin.py" >view code</a>
+						  <br><br>
+					    <li class = "lead fst-italic">Figure-7 [Interactive Linked Time-Series and Boxplot]: Two-Bedroom Apartment and Condo Average Housing Growth Price in Five Potential STEM Cities from 2012-2021 </li>
+						  <br>
+					  		<iframe src="https://jixy.georgetown.domains/ANLY503/viz_linked1.html" width="1200" height="800"> </iframe>
+									<p style="font-size:13px; color:#6c757d; font-style:italic;"><strong>Annotation</strong>: By <strong>clicking on the time-series line</strong>, the highlight of individual cities can be shown. The highlight would be applied across all four graphs. And by <strong>clicking the blank area</strong> of the time-series graph, all the cities would be revealed. By <strong>putting the mouse (without clicking) on the points in the time-series graph</strong>, the city, date, average price, and growth rate would be shown in the tooltip box. By <strong>putting the mouse (without clicking) on the boxplot</strong>, the max, min, median, and quartile information would be displayed for that specific boxplot.</p>
+										<p class="lead2"><strong class="fw-bold">Results</strong>: On the linked graph, the line graph on the left shows the growth rate of housing prices for two-bedroom apartments and condos in the five potential STEM cities over 10 years, while the boxplot graph on the right shows the same information differently. From both graphs, Austin and New York have quite similar median prices for two-bedroom apartments, but the median prices of condos in New York are much higher than in other cities. However, there are many outliers in Austin's two types of boxplots because the average housing price for two-bedroom apartments and condos in Austin increased in 2021.</p>
+
+							<a class = "lead2" href = "https://jixy.georgetown.domains/ANLY503/code_linked1.py" >view code</a>
+						  	
+					  	  <br><br>
+					  <li class = "lead fst-italic">Figure-8 [Interactive Distribution Plot]: Average Housing Price for Two-Bedroom Apartments and Condos in Five Potential STEM Cities </li>
+						  <br><br>
+						    <iframe src="https://jixy.georgetown.domains/ANLY503/viz_city_distribution.html" width="800px" height="500px"> </iframe>
+						  	<br><p style="font-size:13px; color:#6c757d; font-style:italic;"><strong>Annotation</strong>: By <strong>clicking the drop-down menu</strong>, the city can be selected. By <strong>putting the mouse</strong> on the edge line for each distribution, the date, and average price for that specific date can be shown. Individual distributions can be eliminated from the view by <strong>clicking on the legend.</strong></p>
+							<p class="lead2"><strong class="fw-bold">Results</strong>: The distribution graph shows that the price change for five potential STEM cities for two-bedroom apartments and condos are similar. The price has increased steadily in the past decade. The average costs for condos in New York are much higher than the price for a 2-Bedroom apartment. In contrast, the average prices of 2-bedroom apartments are slightly higher for the other four cities. And the average costs for the two housing types in Dallas and Austin are almost the same.</p>
+							<a class = "lead2" href = "https://jixy.georgetown.domains/ANLY503/city_distribution.R">view code</a>
+					  </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+		<!-- Discussion section-->
+        <section class="bg-light" id="discussion">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2>Discussion</h2>
+                      <p class="lead2"><strong class="fw-bold">Question 1. How to find 5 Potential STEM Cities and correlate them with housing market potentials?</strong></p>
+                      <p class="lead2">Figure 1 and Figure 2 illustrate how we find our five potential STEM cities. First, by using the term “potential cities,” we refer to cities with high economic growth that might provide many job opportunities, especially for young professionals. Housing prices are a significant economic indicator.&nbsp;</p>
+                      <p class="lead2">By calculating the average housing price growth rates in the last decade and observing the changes state by state (Figure 1), we were able to find a few states with increasing growth rates (the color change from lighter to darker). Two states with noticeable changes are Florida and Texas. Therefore, finding our potential cities in these two states would make sense.Moreover, our project wants to select potential cities with a STEM emphasis, as we all are STEM-major students. Text analysis was conducted to cross the city names in Google News under the keywords “potential cities in the US” and “technology cities in the US.” The word frequency was plotted to visualize heavily mentioned cities under two different key terms (Figure 2).&nbsp;</p>
+                      <p class="lead2">Cities found to have high frequencies under both terms, combining the result that we found in Figure 1, two cities in Texas: Austin and Dallas, and two cities in Florida: Orlando and Miami, were selected to be potential cities. To our surprise, New York was the fifth city selected, with high popularity when people discussed “potential cities” and “technology cities.” New York has always been the financial center of the US. However, as many technology firms build their headquarters and shift part of their operations to New York, it would be interesting to see how New York shifts its focus and performs as a potential STEM city.&nbsp;</p>
+                      <p class="lead2"><strong class="fw-bold">Question 2. Are potential cities worthy of investing in comparison to STEM-centered cities?</strong>&nbsp;</p>
+                      <p class="lead2"> Figure 3, Figure 4, and Figure 5 analyze the average housing price growth rates from different perspectives.&nbsp;</p>
+                      <p class="lead2">Figure 3 ranks the 10 cities, 5 potential STEM cities, and 5 famous STEM cities by their average housing prices growth rate. This figure provides an overview of how the housing market changed in the last decade, including all housing types. From the graph, it can be seen that up until 2018, STEM-centered cities, for example, San Francisco and Seattle, were generating the highest growth rates. From 2019, potential STEM cities like Dallas and Austin will start to have higher growth rates. It might indicate that STEM-centered cities’ housing markets performed better in the early years. IN RECENT YEARS, the US housing market shifted its focus to potential STEM cities. However, we cannot generate valuable insights for our target audience by analyzing the average housing prices: young professionals. Therefore, we further narrow our research to two specific housing types: 2-Bedroom apartments and condos.</p>
+                      <p class="lead2">Figure 4 and Figure 5 are two time-series heat maps showing housing price growth rates each month throughout the last 10 years for 2-Bedroom apartments and condos. The housing market for 2-Bedroom apartments and condos shows a similar pattern but is slightly different from the market for all housing types. Unlike the market for all housing types, which shifts the focus from STEM-centered cities to potential cities in 2019, the shifts in 2-Bedroom and condo markets are later. Some potential STEM cities, such as Austin, have a minimum average price growth rate until 2020 and become the city with the highest growth rate in 2021. Meanwhile, we can see that the STEM-centered cities were performing really severely:  A lot of which generated negative growth rates in 2021. It might result from the pandemic effect: people moved out of STEM-centered cities and avoided high prices when many companies announced “work from anywhere” policies. And it might be a forever change since some of the companies are not going to change their working styles back. It would be questionable whether there would be as many demands in well-known STEM cities and whether their growth rate in housing prices would go back to the pre-pandemic level.&nbsp;</p>
+                      <p class="lead2">Therefore, it is reasonable to believe that in the coming years, potential STEM cities will replace the positions of STEM-centered cities in the housing market, especially for 2-Bedroom apartments and condos. With no guarantee of the recovery of the housing prices growth rate, it might be smart for investors, especially young professionals, to invest in potential STEM cities.&nbsp;</p>
+                      <p class="lead2"><strong class="fw-bold">Question 3. What should we buy, 2-Bedroom apartments or condos? And, where should we buy, in potential cities?</strong></p>
+                      <p class="lead2">Figure 6, Figure 7, and Figure 8 could answer this question.&nbsp;</p>
+                      <p class="lead2">Figure 6 focuses on the growth rate comparison between different housing types. The violin plot shows that the growth rates for 2-Bedroom apartments and condos are similar in range and shape across all cities. Therefore, it wouldn’t be very different for young professionals to purchase 2-Bedroom apartments or condos to generate returns in percentage.
+                          Meanwhile, in Figure 8, by plotting and comparing the distributions of average housing prices for 2-Bedroom apartments and condos, we can see that purchasing an apartment is slightly more expensive than purchasing a condo. Therefore, if young professionals don’t have enough savings, it might be easier for them to purchase a condo from a financial point of view. 
+                          Moreover, from Figure 7, it is observed that Austin stands out from the rest by generating a sky-rocket high growth rate in the second quarter of 2021. Although the growth rate experienced a sudden drop, it gradually increased and outbeated other cities by 2021. It is reasonable to assume that Austin would generate a solid housing price growth rate for both 2-Bedroom apartments and condos in the first two quarters of 2022.&nbsp;</p>
+                      <p class="lead2">At the same time, if you are looking to purchase properties in Austin, you probably need to prepare about 278K for an average two-bedroom apartment and 293K for an average condo, which is about 55K-58K for the down payment (considering 20% for a down payment).</p>
+                      <p class="lead2">It might be a bit heavier for young professionals than other potential STEM cities (except New York), but considering the much higher growth rate and the profit you can generate from the investment. I would say it would be an excellent choice to move to Austin.&nbsp;</p>
+                      <p class="lead2"><strong class="fw-bold">Question 4. What is a good time to buy, and what is a good time to sell?</strong>&nbsp;</p>
+                        <p class="lead2">By observing the year-to-year heatmaps (Figures 4 and 5), the years on the left are generally darker than the years on the right. It might indicate “high seasons” in the left-side years and “low seasons” in the right-side years. Therefore, it might be wise for young professionals to purchase properties during a “low season” year and sell their properties in a “high season” year. The following “low season” year by prediction should be 2023 when we graduate from the DSAN program. It might be an excellent idea for us to think about moving and purchasing a property immediately.</p>
+                  </div>
+                </div>
+            </div>
+        </section>
+<!-- Conclusion section-->
+        <section id="conclusion">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                  <div class="col-lg-8">
+                    <h2>Conclusion</h2>
+                    <p class="lead2">STEM-major students think about moving to STEM-centered cities like San Jose or Seattle. Although everyone knows about the high living expenses and housing costs in these areas, many people find it unavoidable to move to these cities for more and better job opportunities. However, our analysis shows that the STEM cites expanded to more states, including Texas and Florida. The well-known, expensive cities are not the only choices with these expansions. In fact, with potential STEM cities just starting to grow in recent years, it is a perfect time for young professionals to move into cities like Austin or Dallas for equal opportunities but a much cheaper life.</p>
+                        <p class="lead2">Meanwhile, the technology era also re-energized old financial centers, for example, New York. Although New York might not be an excellent city for young professionals to move to, financially speaking, it might be interesting to see whether this “technology wave” would expand to New Jersey and New York. Therefore, observing the housing market in these two cities might be the next step of our research. </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+		<!-- References section-->
+        <section class="bg-light" id="reference">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2>References</h2>
+                        <p class = "lead">Qualitative and Quantitative Data</p>
+						<a href="https://www.zillow.com/research/data/" class="lead2">https://www.zillow.com/research/data/</a>
+						<p class = "lead2">We used four datasets from this link that are also in the <strong class="fw-bold">"OriginalData" </strong> folder at our GitHub respository with names "City.csv", "State.csv", "2b.csv", and "condo.csv".</p>
+						<p class = "lead">Text Data</p>
+						<p class = "lead2">We gathered the text data from the Google News API to created 7 text files. The text files can be found at our GitHub respository under the fold called <strong class="fw-bold">TextData</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+		<!-- About us section-->
+        <section id="about">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                    <div class="col-lg-8">
+                        <h2>About us</h2>
+						<ul>
+							<br>
+							<p class = "lead fw-bold fst-italic"> Group 23</p>
+							<li class = "fst-italic lead">Yudi Chen&nbsp; &nbsp; &nbsp; yc1000</li>
+							<li class = "fst-italic lead">Xinyue Ji&nbsp; &nbsp; &nbsp; &nbsp; xj82</li>
+							<li class = "fst-italic lead">Hanjing Shi&nbsp; &nbsp; hs1063</li>
+							<li class = "fst-italic lead">Ke Shi&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ks1837</li>
+							<li class = "fst-italic lead">Jinao Zhu&nbsp; &nbsp; &nbsp; jz756</li>
+						</ul>
+                        <p class="lead"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container px-4"></div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://jixy.georgetown.domains/ANLY503/html/scripts.js"></script>
+    </body>
+</html>

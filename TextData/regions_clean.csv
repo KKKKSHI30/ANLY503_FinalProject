@@ -1,0 +1,36 @@
+,regions,counts_x,counts_y,rank
+0,North,1,0,1
+1,Bristol,2,0,2
+2,Liverpool,2,0,2
+3,Massachusetts,50,0,50
+4,New York,1,0,1
+5,California,1,0,1
+6,Texas,2,2,4
+7,Florida,1,0,1
+8,Washington,2,0,2
+9,Tennessee,203,156,359
+10,New Jersey,1,0,1
+11,Kansas,2,0,2
+12,Missouri,0,49,49
+13,North Carolina,49,0,49
+14,Utah,49,51,100
+15,Iowa,3,2,5
+16,Idaho,2,5,7
+17,Quebec,4,2,6
+18,Alberta,102,4,106
+19,Hiroshima,50,0,50
+20,Central,1,0,1
+21,Lot,1,0,1
+22,West,2,7,9
+23,Nagasaki,4,0,4
+24,Federal,153,150,303
+25,Portland,2,0,2
+26,Mexico City,2,0,2
+27,Charlotte,1,0,1
+28,Birmingham,1,0,1
+29,Ohio,1,196,197
+30,Colorado,1,0,1
+31,Arizona,1,0,1
+32,Oklahoma,1,0,1
+33,South,1,0,1
+34,Northland,1,0,1

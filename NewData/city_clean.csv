@@ -1,0 +1,119 @@
+,cities,counts_x,counts_y,rank
+0,Tokyo,1,0,1
+1,Kyoto,2,0,2
+2,Bristol,2,0,2
+3,Liverpool,50,0,50
+4,Stone,1,0,1
+5,Boston,1,0,1
+6,Washington,2,2,4
+7,Leer,1,0,1
+8,Chicago,2,0,2
+9,New York,203,156,359
+10,Portland,1,0,1
+11,Houston,2,0,2
+12,San Francisco,0,49,49
+13,Tampa,49,0,49
+14,Orlando,49,51,100
+15,Denver,3,2,5
+16,Austin,2,5,7
+17,Fort Worth,4,2,6
+18,Phoenix,102,4,106
+19,Philadelphia,50,0,50
+20,Cleveland,1,0,1
+21,Brooklyn,1,0,1
+22,Dallas,2,7,9
+23,Atlanta,4,0,4
+24,Miami,153,150,303
+25,New Orleans,2,0,2
+26,Las Vegas,2,0,2
+27,Salt Lake City,1,0,1
+28,Indianapolis,1,0,1
+29,Pittsburgh,1,196,197
+30,Charlotte,1,0,1
+31,Greensboro,1,0,1
+32,Des Moines,1,0,1
+33,Greenville,1,0,1
+34,Norman,1,0,1
+35,Kyiv,2,0,2
+36,Cincinnati,1,4,5
+37,Montreal,2,0,2
+38,Miami Beach,1,0,1
+39,Atlantic City,2,0,2
+40,Kansas City,53,7,60
+41,California,1,49,50
+42,Hannibal,1,0,1
+43,Memphis,1,0,1
+44,Mexico,3,0,3
+45,Ottawa,1,0,1
+46,New City,1,0,1
+47,Wade,150,0,150
+48,Media,1,0,1
+49,Boise,3,0,3
+50,Provo,1,0,1
+51,Kansas,103,0,103
+52,West,2,0,2
+53,Nasa,0,0,0
+54,Carnegie,1,0,1
+55,Mexico City,1,0,1
+56,Central,3,0,3
+57,Rapid City,98,0,98
+58,Penticton,1,0,1
+59,Winnipeg,1,0,1
+60,Florida,3,7,10
+61,Wuhan,1,0,1
+62,Jakarta,1,0,1
+63,Real,153,0,153
+64,George,0,0,0
+65,America,279,58,337
+66,Hiroshima,1,0,1
+67,Usa,0,0,0
+68,Nagasaki,1,0,1
+69,Phillips,1,0,1
+70,Federal,1,0,1
+71,New England,1,0,1
+72,Midwest,49,4,53
+73,White House,49,0,49
+74,Southside,1,0,1
+75,Strong,1,0,1
+76,North,3,0,3
+77,China,3,49,52
+78,Russia,60,0,60
+79,May,151,2,153
+80,Tennessee,2,0,2
+81,Us,2,0,2
+82,Lot,0,0,0
+83,Heres,0,0,0
+84,Iowa,1,0,1
+85,Case,50,0,50
+86,Forbes,1,0,1
+87,Date,50,0,50
+88,Likely,1,0,1
+89,Kadir,1,0,1
+90,Canada,1,0,1
+91,Salt Lake,1,0,1
+92,Birmingham,0,1,1
+93,London,0,50,50
+94,March,0,1,1
+95,Jacksonville,0,1,1
+96,San Antonio,0,3,3
+97,San Diego,0,48,48
+98,Plano,0,2,2
+99,Seattle,0,54,54
+100,San Jose,0,1,1
+101,Nashville,0,4,4
+102,Milwaukee,0,1,1
+103,Tulsa,0,1,1
+104,Toronto,0,2,2
+105,Hartford,0,1,1
+106,Manhattan,0,4,4
+107,McDonald,0,1,1
+108,Ohio,0,1,1
+109,Stem,0,0,0
+110,Meta,0,99,99
+111,Job,0,32,32
+112,Northland,0,1,1
+113,Colorado,0,2,2
+114,Nine,0,0,0
+115,Remote,0,51,51
+116,Java,0,1,1
+117,Twin Cities,0,48,48

@@ -1,0 +1,194 @@
+---
+title: "Data Cleaning"
+author: "Jinao Zhu"
+date: '2022-04-07'
+output: html_document
+---
+
+```{r}
+library(magrittr)
+library(dplyr)
+library(tidyverse)
+library(styler)
+library(lintr)
+```
+
+```{r}
+# import files
+s <- read.csv("OriginalData/State.csv", check.names = FALSE)
+c <- read.csv("OriginalData/City.csv", check.names = FALSE)
+```
+
+```{r}
+# melting the data
+c1 <- c %>% pivot_longer(cols = "2000-01-31":"2022-02-28", names_to = "Date", values_to = "Price")
+s1 <- s %>% pivot_longer(cols = "2000-01-31":"2022-02-28", names_to = "Date", values_to = "Price")
+# change the data type
+c1$Date <- as.Date(c1$Date)
+s1$Date <- as.Date(s1$Date)
+head(c1)
+# delete columns
+c1 <- c1[-c(1, 2, 4, 5, 8)]
+s1 <- s1[-c(1, 2, 4)]
+head(s1)
+```
+
+
+```{r}
+# remove na
+s2 <- na.omit(s1)
+c2 <- na.omit(c1)
+s2 <- s2 %>% filter(Date >= "2001-01-31")
+c2 <- c2 %>% filter(Date >= "2001-01-31")
+# export the dataframes
+names(s2) <- tolower(names(s2))
+names(c2) <- tolower(names(c2))
+# export the dataframes
+colnames(s2)[2] <- "state_code"
+colnames(s2)[1] <- "state"
+colnames(c2)[2] <- "state_code"
+colnames(c2)[1] <- "city"
+# write.csv(s2, "NewData/allstate.csv", row.names = FALSE)
+# write.csv(c2, "NewData/allcity.csv", row.names = FALSE)
+```
+
+
+
+```{r}
+# get 10 most expensive states to buy a house in 2022
+## https://zerodown.com/blog/10-most-expensive-states-to-buy-a-house
+ex_state <- s1[s1$RegionName %in% c("Hawaii", "Wyoming", "Massachusetts", "Alaska", "Connecticut", "Washington", "California", "Colorado", "Oregon", "New York"), ]
+# ex_state <- na.omit(ex_state)
+colnames(ex_state)[2] <- "State"
+ex_state <- ex_state %>% filter("2021-12-31" >= Date & Date >= "2001-01-31")
+ex_state
+
+# get 10 most expansive real estate cities and house price of cities with huge increase in 2021
+# https://www.kiplinger.com/real-estate/603612/15-us-cities-with-the-highest-average-home-prices
+## https://www.rocketmortgage.com/learn/most-expensive-cities-in-the-us
+ex_city <- filter(c1, (RegionName == "San Francisco" & State == "CA") | (RegionName == "New York" & State == "NY") | (RegionName == "San Jose" & State == "CA") | (RegionName == "Bethesda" & State == "MD") | (RegionName == "Arlington" & State == "VA") | (RegionName == "Los Angeles" & State == "CA") | (RegionName == "Boston" & State == "MA") | (RegionName == "Oakland" & State == "CA") | (RegionName == "Seattle" & State == "WA") | (RegionName == "Honolulu" & State == "HI"))
+ex_city <- na.omit(ex_city)
+ex_city <- ex_city %>% filter("2021-12-31" >= Date & Date >= "2001-01-31")
+ex_city
+## https://www.forbes.com/sites/andrewdepietro/2021/10/25/10-cities-with-the-biggest-jump-in-home-prices-of-2021/?sh=4005b13164f5
+ri_city <- filter(c1, (RegionName == "Bellevue" & State == "WA") | (RegionName == "Fremont" & State == "CA") | (RegionName == "Scottsdale" & State == "AZ") | (RegionName == "San Jose" & State == "CA") | (RegionName == "Rochester" & State == "NY") | (RegionName == "Pembroke Pines" & State == "FL") | (RegionName == "Glendale" & State == "CA") | (RegionName == "Worcester" & State == "MA") | (RegionName == "Boise" & State == "ID") | (RegionName == "Palmdale" & State == "CA"))
+ri_city <- na.omit(ri_city)
+ri_city <- ri_city %>% filter("2021-12-31" >= Date & Date >= "2001-01-31")
+ri_city
+
+colnames(ex_state)[2] <- "state_code"
+colnames(ex_state)[1] <- "state"
+colnames(ex_city)[2] <- "state_code"
+colnames(ex_city)[1] <- "city"
+colnames(ri_city)[2] <- "state_code"
+colnames(ri_city)[1] <- "city"
+
+# make column name lower case
+names(ex_state) <- tolower(names(ex_state))
+names(ex_city) <- tolower(names(ex_city))
+names(ri_city) <- tolower(names(ri_city))
+```
+
+
+
+```{r}
+# import files
+b <- read.csv("OriginalData/2b.csv", check.names = FALSE)
+con <- read.csv("OriginalData/condo.csv", check.names = FALSE)
+head(b)
+
+# delete columns and first rows
+b <- b[-c(1, 2, 4, 272)]
+b <- b[-1, ]
+con <- con[-c(1, 2, 4, 272)]
+con <- con[-1, ]
+
+# rename
+colnames(b)[2] <- "state_code"
+colnames(b)[1] <- "city"
+colnames(con)[2] <- "state_code"
+colnames(con)[1] <- "city"
+head(con)
+```
+
+```{r}
+# pivoting
+b1 <- b %>% pivot_longer(cols = "2000-01-31":"2022-02-28", names_to = "date", values_to = "twobed_price")
+con1 <- con %>% pivot_longer(cols = "2000-01-31":"2022-02-28", names_to = "date", values_to = "condo_price")
+# change data type
+b1$date <- as.Date(b1$date)
+con1$date <- as.Date(con1$date)
+# filter the date
+c3 <- c2 %>% filter("2021-12-31" >= date & date >= "2001-01-31")
+b2 <- b1 %>% filter("2021-12-31" >= date & date >= "2001-01-31")
+con2 <- con1 %>% filter("2021-12-31" >= date & date >= "2001-01-31")
+```
+
+
+```{r}
+# separate the city column and delete abbreviation
+b2 <- b2 %>% separate(city, c("city", "state"), sep = ",")
+b2 <- b2[-c(2)]
+con2 <- con2 %>% separate(city, c("city", "state"), sep = ",")
+con2 <- con2[-c(2)]
+# rename the cities
+b2$city[b2$city == "Boise City"] <- "Boise"
+con2$city[con2$city == "Boise City"] <- "Boise"
+b2$city[b2$city == "Dallas-Fort Worth"] <- "Dallas"
+con2$city[con2$city == "Dallas-Fort Worth"] <- "Dallas"
+b2$city[b2$city == "Los Angeles-Long Beach-Anaheim"] <- "Los Angeles"
+con2$city[con2$city == "Los Angeles-Long Beach-Anaheim"] <- "Los Angeles"
+b2$city[b2$city == "Urban Honolulu"] <- "Honolulu"
+con2$city[con2$city == "Urban Honolulu"] <- "Honolulu"
+b2$city[b2$city == "Miami-Fort Lauderdale"] <- "Miami"
+con2$city[con2$city == "Miami-Fort Lauderdale"] <- "Miami"
+```
+
+```{r}
+# join
+c4 <- left_join(c3, b2, by = c("date", "state_code", "city"))
+c5 <- left_join(c4, con2, by = c("date", "state_code", "city"))
+head(c5)
+```
+
+```{r}
+# remove duplicate
+c5 <- distinct(c5)
+# export
+# write.csv(c5, "NewData/all_city1.csv", row.names = FALSE)
+```
+
+```{r}
+# get the data from past 10 years to calculate the rate
+c6 <- c5 %>% filter("2021-12-31" >= date & date >= "2011-12-31")
+# make a new column called rate
+c7 <- c6 %>%
+  group_by(city, state_code) %>%
+  arrange(city, state_code, date) %>%
+  mutate(rate = 100 * (price - lag(price)) / lag(price)) %>%
+  ungroup()
+```
+
+```{r}
+# make a new columns called twobed rate and condo rate
+c7 <- c7 %>%
+  group_by(city, state_code) %>%
+  arrange(city, state_code, date) %>%
+  mutate(tbrate = 100 * (twobed_price - lag(twobed_price)) / lag(twobed_price)) %>%
+  mutate(conrate = 100 * (condo_price - lag(condo_price)) / lag(condo_price)) %>%
+  ungroup()
+head(c7)
+```
+```{r}
+# Get rid of the the data from 2011-12-31
+c7 <- c7 %>% filter(date > "2011-12-31")
+# write.csv(c7, "NewData/New_city.csv", row.names = FALSE)
+```
+
+```{r}
+# select the 5 cities
+pcity <- filter(c7, (city == "New York" & state_code == "NY") | (city == "Miami" & state_code == "FL") | (city == "Orlando" & state_code == "FL") | (city == "Dallas" & state_code == "TX") | (city == "Austin" & state_code == "TX") | (city == "Seattle" & state_code == "WA") | (city == "San Jose" & state_code == "CA") | (city == "San Francisco" & state_code == "CA") | (city == "Boston" & state_code == "MA") | (city == "Los Angeles" & state_code == "CA"))
+head(pcity)
+pcity <- pcity[-c(3)]
+write.csv(pcity, "NewData/select_city.csv", row.names = FALSE)
+```
